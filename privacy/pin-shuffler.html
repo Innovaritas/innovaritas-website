@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy policy for the Pin Shuffler Chrome extension by Innovaritas, LLC." />
+  <title>Pin Shuffler – Privacy Policy</title>
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="/"><img src="/assets/logo.png" alt="Innovaritas" /></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap">
+
+      <p class="crumb"><a href="/">Innovaritas</a> · Pin Shuffler Privacy Policy</p>
+
+      <div class="card policy">
+
+        <h1 style="font-size:28px;">Pin Shuffler – Privacy Policy</h1>
+
+        <p>Pin Shuffler does not collect, store, or transmit any personal information. It has no servers, no accounts, and no analytics. Nothing it reads ever reaches the developer.</p>
+
+        <h2>What Pin Shuffler accesses</h2>
+        <p>Pin Shuffler runs only on pinterest.com. There it accesses:</p>
+        <ul>
+          <li><strong>Pin identifiers and positions.</strong> It reads the identifier and slot position of each pin on the board you are organizing, so it can work out and apply a new order.</li>
+
+          <li><strong>Your board's identifier.</strong> Pinterest does not reliably include this in the page, so from the moment a Pinterest page loads, Pin Shuffler inspects the addresses and request bodies of Pinterest's own network requests, looking for a board identifier. It matches a single pattern and keeps only the number it finds; nothing else is read out, retained, or sent anywhere. If that does not produce an identifier, it asks Pinterest's board API for it directly, or searches the page's inline scripts for the same pattern.</li>
+
+          <li><strong>Your Pinterest CSRF token.</strong> Pinterest requires this cookie value on any request that changes your account. Pin Shuffler reads it from the page and returns it to Pinterest with each reorder request. It is not stored and is not sent anywhere else.</li>
+        </ul>
+
+        <h2>What is stored on your device</h2>
+        <p>Pin Shuffler uses Chrome's local extension storage — never sync storage — to save four values: your board's pin order before a shuffle, its order after a shuffle, whether an undo is available, and which version of the extension's change notice you have dismissed. This data stays on your device. The saved pin orders are deleted once an Undo completes, and removing the extension clears everything.</p>
+
+        <h2>What Pin Shuffler sends</h2>
+        <p>The only network requests Pin Shuffler makes are to Pinterest, over HTTPS, using your existing Pinterest session: one lookup for your board's identifier, and one reorder request for each pin moved. These are the same requests Pinterest's own site makes when you drag a pin by hand, and they carry out only actions you are already signed in to perform. Data handled by Pinterest is subject to <a href="https://policy.pinterest.com/en/privacy-policy" target="_blank" rel="noopener noreferrer">Pinterest's Privacy Policy</a>.</p>
+
+        <p>There are no other network requests. Pin Shuffler contains no analytics, telemetry, crash reporting, or advertising code, and its fonts are bundled inside the extension so that opening it contacts no outside host.</p>
+
+        <h2>Permissions</h2>
+        <p>Pin Shuffler requests two permissions: <code>storage</code>, to save your pin order on your device, and access to <code>https://www.pinterest.com/*</code>. It does not request Chrome's <code>tabs</code> permission, so Chrome does not give it the address of any page outside Pinterest.</p>
+
+        <h2>Limited use</h2>
+        <p>Pin Shuffler uses the data it accesses only to reorder pins on your boards. That data is never sold or transferred to third parties, never used for advertising, and never seen by anyone at Innovaritas, LLC — the extension has no mechanism that could transmit it to the developer. This complies with the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use" target="_blank" rel="noopener noreferrer">Chrome Web Store Limited Use policy</a>.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>If Pin Shuffler's data practices change, this policy and the date below will be updated, the Privacy Practices on its Chrome Web Store listing will be updated, and the extension will show you a notice describing the change the next time you open it.</p>
+
+        <h2>Contact</h2>
+        <!-- The address is HTML-entity encoded rather than written in plain text.
+             Browsers decode it before rendering, so the link looks and behaves
+             normally, but scrapers that pattern-match raw HTML for addresses do
+             not see it. This has to stay a real mailto (not the contact form)
+             because the Chrome Web Store listing requires a contact address in
+             the privacy policy. -->
+        <p>Questions about this policy can be sent to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#105;&#110;&#110;&#111;&#118;&#97;&#114;&#105;&#116;&#97;&#115;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#105;&#110;&#110;&#111;&#118;&#97;&#114;&#105;&#116;&#97;&#115;&#46;&#99;&#111;&#109;</a>.</p>
+
+        <hr />
+        <p class="meta">Last updated: August 16, 2026 · Innovaritas, LLC</p>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Innovaritas, LLC · <a href="/privacy/pin-shuffler.html">Privacy</a> · <a href="/contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

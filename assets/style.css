@@ -1,0 +1,556 @@
+/* Innovaritas site stylesheet — dark / futuristic / glassmorphism theme.
+   Colors and type are the confirmed brand system:
+   gradient magenta -> purple -> cyan, deep navy background,
+   frosted-glass cards, Raleway headings + Inter body. */
+
+:root {
+  --magenta: #ec4899;
+  --purple: #8b5cf6;
+  --cyan: #22d3ee;
+  --grad: linear-gradient(90deg, var(--magenta), var(--purple), var(--cyan));
+
+  --bg-top: #030509;
+  --bg-bottom: #080b16;
+
+  --yellow: #fbbf24;
+  --green: #4ade80;
+  --orange: #fb923c;
+  --red: #f43f5e;
+
+  --text: #f3f4fa;
+  --muted: #a3a8c2;
+  /* Slightly lighter than the original design-system value so footer/meta
+     text still clears WCAG AA (4.5:1) contrast when it sits on a glass
+     card, not just on the plain background. */
+  --muted-soft: #8991b8;
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.14);
+
+  --max-width: 880px;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect the OS-level "reduce motion" preference: turn off smooth
+   scrolling and hover/transition animation for anyone who has that on. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard-focus ring, styled to match the brand instead of
+   relying on (and possibly fighting with) each browser's default. Only
+   shows for keyboard/assistive-tech focus, not mouse clicks. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* "Skip to content" link: invisible until a keyboard user tabs to it,
+   then it jumps straight past the header/nav to the main content. */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  background: var(--bg-bottom);
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom) 60%);
+  background-attachment: fixed;
+  line-height: 1.7;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Starfield: layered soft dots, tiled, fixed behind all content */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 40px 60px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 120px 140px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 200px 30px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 260px 190px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 320px 90px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 20px 220px, rgba(255, 255, 255, 0.5), transparent);
+  background-repeat: repeat;
+  background-size: 380px 260px;
+  opacity: 0.7;
+}
+
+/* Soft gradient glow accent, purely decorative */
+body::after {
+  content: "";
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  z-index: -1;
+  width: 60vw;
+  height: 60vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.16), transparent 65%);
+  pointer-events: none;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Raleway", "Inter", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+/* ---------- Header ---------- */
+
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(3, 5, 9, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+header.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+nav.site-nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+nav.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+nav.site-nav a:hover {
+  color: var(--text);
+}
+
+nav.site-nav a.active {
+  color: var(--text);
+}
+
+nav.site-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad);
+}
+
+/* ---------- Main content ---------- */
+
+main {
+  padding: 64px 0 96px;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--text);
+  display: inline-block;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--grad);
+}
+
+/* Used only for the homepage hero title: white text, yellow underline. */
+h1.hero-title {
+  color: var(--text);
+}
+
+h1.hero-title::after {
+  background: var(--yellow);
+}
+
+h2 {
+  font-size: 22px;
+  margin: 48px 0 14px;
+}
+
+h3 {
+  font-size: 19px;
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.lede {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration-color: rgba(34, 211, 238, 0.4);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Glass components ---------- */
+
+.card,
+.notice {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.card {
+  padding: 28px;
+  margin-bottom: 24px;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  background: var(--glass-bg-strong);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin-top: 4px;
+}
+
+.project-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+  margin: 2px 0 18px;
+}
+
+/* Visually hidden but still readable by screen readers — used when a
+   heading's text is already shown as part of a logo image. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.card-head h3 {
+  margin-top: 0;
+}
+
+.card p {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.notice {
+  padding: 16px 22px;
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 40px;
+  border-left: 3px solid var(--yellow);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+}
+
+.badge.live {
+  color: var(--green);
+  background: rgba(74, 222, 128, 0.12);
+  border-color: rgba(74, 222, 128, 0.35);
+}
+
+.badge.dev {
+  color: var(--orange);
+  background: rgba(251, 146, 60, 0.12);
+  border-color: rgba(251, 146, 60, 0.35);
+}
+
+.badge.soon {
+  color: var(--yellow);
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.35);
+}
+
+.crumb {
+  font-size: 14px;
+  color: var(--muted-soft);
+  margin-bottom: 24px;
+}
+
+.crumb a {
+  color: var(--muted-soft);
+  text-decoration: underline;
+}
+
+ul.plain {
+  padding-left: 20px;
+}
+
+ul.plain li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+/* ---------- Long-form / policy content ---------- */
+
+code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--glass-border);
+  margin: 40px 0 20px;
+}
+
+.meta {
+  color: var(--muted-soft);
+  font-size: 14px;
+}
+
+.policy ul {
+  padding-left: 22px;
+}
+
+.policy li {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.policy h2:first-of-type {
+  margin-top: 8px;
+}
+
+/* ---------- Footer ---------- */
+
+footer.site-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--glass-border);
+  padding: 28px 0;
+  color: var(--muted-soft);
+  font-size: 14px;
+}
+
+footer.site-footer a {
+  color: var(--muted-soft);
+}
+
+footer.site-footer a:hover {
+  color: var(--muted);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  main {
+    padding: 44px 0 72px;
+  }
+
+  header.site-header .wrap {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav.site-nav {
+    justify-content: center;
+    gap: 18px;
+  }
+}
+
+/* ---------- Contact form ---------- */
+
+.contact-form .field {
+  margin-bottom: 20px;
+}
+
+/* Labels use full --text rather than --muted so they stay well clear of
+   the WCAG AA 4.5:1 bar against the glass card behind them. */
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* --muted-soft is the lightest tone that still clears AA; anything dimmer
+   makes placeholder text fail contrast on this background. */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--muted-soft);
+}
+
+/* Plain :focus, not :focus-visible — text fields warrant a visible focus
+   indicator for mouse users too, not only keyboard navigation. */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b0616;
+  background: var(--grad);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Honeypot: hidden from everyone. Bots fill it in and get discarded;
+   the field is also aria-hidden and untabbable in the markup so it is
+   never announced to or reachable by assistive tech. */
+.hp {
+  display: none;
+}

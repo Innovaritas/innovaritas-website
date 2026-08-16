@@ -1,0 +1,39 @@
+# --- Secrets: never commit these ---
+# .env files hold API keys, tokens, and passwords. Once pushed to a public
+# repo they are compromised permanently, even if deleted in a later commit.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# --- Security reports ---
+# A map of this site's weak points. Useful to you, useful to an attacker.
+security-report-*.md
+
+# --- macOS ---
+# Finder metadata. Harmless but noisy, and it leaks folder structure.
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Editors ---
+.vscode/
+.idea/
+*.swp
+
+# --- Logs and temp files ---
+*.log
+npm-debug.log*
+.cache/
+tmp/
+
+# --- Dependencies and build output ---
+# Not used today, but will be if this site ever gains a build step.
+node_modules/
+dist/
+build/
+.vercel

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Innovaritas." />
+  <title>Contact — Innovaritas</title>
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="/"><img src="/assets/logo.png" alt="Innovaritas" /></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" class="active" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap">
+      <h1>Contact</h1>
+      <p class="lede">Questions, ideas, or want to work together? Send us a note and we'll get back to you.</p>
+
+      <div class="card">
+        <!-- Handled by Netlify Forms. The `data-netlify` and `netlify-honeypot`
+             attributes are stripped at build time, when Netlify also injects a
+             hidden `form-name` field. Submissions land in the Netlify dashboard,
+             so no address or endpoint is exposed in this markup. -->
+        <form
+          name="contact"
+          method="POST"
+          action="/thanks.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contact-form"
+        >
+          <!-- Honeypot: hidden from sighted users and assistive tech alike.
+               Only bots fill it in, and those submissions are discarded. -->
+          <p class="hp" aria-hidden="true">
+            <label>Leave this field empty
+              <input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
+            </label>
+          </p>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Innovaritas, LLC · <a href="/privacy/pin-shuffler.html">Privacy</a> · <a href="/contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
