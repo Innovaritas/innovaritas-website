@@ -8,7 +8,7 @@ Structure and visual style are now in place — plain HTML/CSS, no build step, n
 
 Copy on About is still placeholder text — real content comes next. Contact is now a working form rather than placeholder.
 
-As of August 16, 2026 the site is under git version control and committed locally, and has passed a security scan (isitsecure v0.22.0, grade A, zero findings) ahead of going public. Not yet pushed.
+As of August 16, 2026 the site is under git version control, has passed a security scan (isitsecure v0.22.0, grade A, zero findings) ahead of going public, and has been pushed to GitHub (`Innovaritas/innovaritas-website`). Not yet connected to Netlify.
 
 ## Structure
 
@@ -47,14 +47,13 @@ The privacy policy deliberately keeps a real `mailto:` link instead of pointing 
 
 This site is plain static HTML — no build step required.
 
-Target repo: `Innovaritas/innovaritas-website` (the **Innovaritas org**, not a personal account). Created and empty as of August 16, 2026; the initial local commit has not been pushed yet.
+Target repo: `Innovaritas/innovaritas-website` (the **Innovaritas org**, not a personal account). Pushed as of August 16, 2026 — two commits (initial site, then the contact-form/README update).
 
-Once GitHub and Netlify are connected (see the Progress doc's Next Steps), every push to `main` automatically redeploys the live site.
+Once Netlify is connected (see the Progress doc's Next Steps), every push to `main` automatically redeploys the live site.
 
 **Remaining steps:**
 
-1. Push the initial commit to `Innovaritas/innovaritas-website`
-2. Connect the repo to Netlify
-3. Enable form detection in Netlify (see Contact form above) **before** the first deploy
-4. Verify the live site loads over HTTPS — this was outside the scope of the local security scan
-5. Submit a test message through the live form to confirm it arrives
+1. Connect the repo to Netlify
+2. Enable form detection in Netlify (see Contact form above) **before** the first deploy
+3. Verify the live site loads over HTTPS — this was outside the scope of the local security scan
+4. Submit a test message through the live form to confirm it arrives
