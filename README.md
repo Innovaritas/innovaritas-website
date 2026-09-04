@@ -8,7 +8,9 @@ Structure and visual style are now in place — plain HTML/CSS, no build step, n
 
 Copy on About is still placeholder text — real content comes next. Contact is now a working form rather than placeholder.
 
-As of August 16, 2026 the site is under git version control, has passed a security scan (isitsecure v0.22.0, grade A, zero findings) ahead of going public, and has been pushed to GitHub (`Innovaritas/innovaritas-website`). Not yet connected to Netlify.
+As of August 16, 2026 the site is under git version control, has passed a security scan (isitsecure v0.22.0, grade A, zero findings) ahead of going public, and has been pushed to GitHub (`Innovaritas/innovaritas-website`). **The site is live**: connected to Netlify (auto-deploys on every push to `main`), the contact form is confirmed working (test submission received, both in the Netlify Forms dashboard and by email), and `innovaritas.com` / `www.innovaritas.com` are pointed at the Netlify site and load correctly over HTTPS. The Netlify project was also switched from Netlify's private-by-default setting to **Public** (Project configuration → General → Visitor access), since new Netlify projects start private until you explicitly publish them.
+
+**Still worth doing:** submit one more test message through the contact form at the live `innovaritas.com` address specifically (earlier tests were on the free `.netlify.app` address, before the domain switch) to confirm nothing broke in the DNS change.
 
 ## Structure
 
@@ -49,11 +51,17 @@ This site is plain static HTML — no build step required.
 
 Target repo: `Innovaritas/innovaritas-website` (the **Innovaritas org**, not a personal account). Pushed as of August 16, 2026 — two commits (initial site, then the contact-form/README update).
 
-Once Netlify is connected (see the Progress doc's Next Steps), every push to `main` automatically redeploys the live site.
+Netlify is connected and set to auto-deploy on every push to `main`. Netlify's free subdomain for this site is `chic-cendol-5493fa.netlify.app` — **don't rename it** in the Netlify dashboard without also updating the `www` CNAME record at the registrar (see DNS section below), since that record points at the exact current subdomain name.
 
-**Remaining steps:**
+## Domain (innovaritas.com)
 
-1. Connect the repo to Netlify
-2. Enable form detection in Netlify (see Contact form above) **before** the first deploy
-3. Verify the live site loads over HTTPS — this was outside the scope of the local security scan
-4. Submit a test message through the live form to confirm it arrives
+Registered at Northwest Registered Agent, which also manages this domain's DNS (nameservers were left pointed at Northwest — Netlify DNS was deliberately *not* used, so the domain's existing Google Workspace/Gmail email setup for `@innovaritas.com` stays untouched).
+
+DNS records changed at Northwest on August 16, 2026 to point the site at Netlify:
+
+- **A record**, host `@` (root domain): changed from the old host's IP to `75.2.60.5` (Netlify's load-balancer IP — used because Northwest doesn't offer an ALIAS/ANAME record type, which is Netlify's first-choice option for the root domain)
+- **CNAME record**, host `www`: added, pointing to `chic-cendol-5493fa.netlify.app.`
+- The old `www` A record was removed (a host can't have both an A and CNAME record)
+- `mail`, `*` (wildcard) A records, the MX record (`SMTP.GOOGLE.COM`), and all SPF/DKIM/DMARC TXT records were left untouched — those run this domain's email and aren't part of the website
+
+Netlify's own visitor-access setting also had to be flipped from **Private** to **Public** after the domain connected (Project configuration → General → Visitor access) — new Netlify projects default to private now, separate from DNS/domain setup.
