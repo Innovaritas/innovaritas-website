@@ -316,6 +316,63 @@ a:hover {
   margin: 2px 0 18px;
 }
 
+/* CTA pill: glass "badge button" matching the Pin Shuffler Pinterest
+   marketing pins (icon + name + store line, rounded-full glass card). */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 22px 10px 10px;
+  margin: 4px 0 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-pill:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.42);
+  transform: translateY(-2px);
+}
+
+.cta-pill-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.cta-pill-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.cta-pill-title {
+  font-family: "Raleway", "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.cta-pill-sub {
+  font-size: 13px;
+  color: #EAE2FA;
+}
+
+.screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  margin: 4px 0 18px;
+}
+
 /* Visually hidden but still readable by screen readers — used when a
    heading's text is already shown as part of a logo image. */
 .sr-only {
@@ -352,7 +409,8 @@ a:hover {
 }
 
 .badge {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
