@@ -31,30 +31,33 @@
   <main id="main-content">
     <div class="wrap">
 
-      <div class="notice">
-        This site is brand new and still being built out, so you're looking at an early version. The full design is on its way, but everything here is real and up to date.
-      </div>
-
-      <h1 class="hero-title">Innovaritas</h1>
-      <p class="lede">A small creative digital studio building useful apps, browser extensions, and (eventually) a lot more.</p>
-
-      <h2>Featured project</h2>
-      <div class="card">
-        <span class="badge live">Live</span>
-        <h3 class="sr-only">Pin Shuffler</h3>
-        <img src="/assets/pin-shuffler-screenshot.jpg" alt="The Pin Shuffler extension open over a Pinterest board, showing a confirmation that 99 pins were shuffled and saved, with an Undo option." class="screenshot" width="1280" height="800" loading="lazy" />
-        <p>A Chrome extension that reshuffles the order of pins on your Pinterest boards.</p>
-        <a class="cta-pill" href="https://chromewebstore.google.com/detail/pin-shuffler/cihfjcnmcliibgcleihgeoeennnggopk">
-          <img src="/assets/pin-shuffler-icon.png" alt="" class="cta-pill-icon" />
-          <span class="cta-pill-text">
-            <span class="cta-pill-title">Pin Shuffler</span>
-            <span class="cta-pill-sub">Free on the Chrome Web Store</span>
-          </span>
-        </a>
-        <p><a href="/privacy/pin-shuffler.html">Privacy policy</a></p>
-      </div>
-
-      <p>More projects will be added here as they're ready to share.</p>
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <h1 class="hero-heading">A <span class="hero-underline">small, creative</span><br />digital studio.</h1>
+          <p class="lede">We build useful apps, browser extensions, and, eventually, a lot more. Right now, that's Pin Shuffler for Chrome.</p>
+          <div class="hero-cta-row">
+            <a class="btn" href="/contact.html">Start a project</a>
+            <a class="btn btn-secondary" href="/projects.html">See our work</a>
+          </div>
+        </div>
+        <div class="hero-stack" role="group" aria-label="Innovaritas projects">
+          <button type="button" class="stack-card stack-ghost" data-project="genuine-article" data-pos="left">
+            <span class="ghost-name">GenuineArticle &middot; In progress</span>
+            <span class="ghost-tagline">Real goods, not AI slop</span>
+            <span class="sr-only stack-hint">View project</span>
+          </button>
+          <button type="button" class="stack-card stack-live" data-project="pin-shuffler" data-pos="center" data-href="https://chromewebstore.google.com/detail/pin-shuffler/cihfjcnmcliibgcleihgeoeennnggopk">
+            <img src="/assets/pin-shuffler-pin.jpg" alt="" width="640" height="960" loading="lazy" />
+            <span class="stack-caption"><span class="dot"></span>Pin Shuffler &middot; Live</span>
+            <span class="sr-only stack-hint">Open project</span>
+          </button>
+          <button type="button" class="stack-card stack-ghost" data-project="the-unsubscriber" data-pos="right">
+            <span class="ghost-name">The Unsubscriber &middot; In progress</span>
+            <span class="ghost-tagline">Junk mail, handled</span>
+            <span class="sr-only stack-hint">View project</span>
+          </button>
+        </div>
+      </section>
 
     </div>
   </main>
@@ -65,5 +68,6 @@
     </div>
   </footer>
 
+  <script src="/assets/hero-stack.js" defer></script>
 </body>
 </html>

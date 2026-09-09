@@ -31,6 +31,10 @@ npm-debug.log*
 .cache/
 tmp/
 
+# --- Local scratch ---
+# Working folder for files staged for deletion; not part of the site.
+_to_delete/
+
 # --- Dependencies and build output ---
 # Not used today, but will be if this site ever gains a build step.
 node_modules/
