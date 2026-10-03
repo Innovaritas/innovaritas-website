@@ -31,7 +31,7 @@
   <main id="main-content">
     <div class="wrap">
       <h1>Contact</h1>
-      <p class="lede">Questions, ideas, or want to work together? Send us a note and we'll get back to you.</p>
+      <p class="lede">Feedback, ideas, or want to work together? Send us a note and we'll get back to you.</p>
 
       <div class="card">
         <!-- Handled by Netlify Forms. The `data-netlify` and `netlify-honeypot`
@@ -53,6 +53,17 @@
               <input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
             </label>
           </p>
+
+          <div class="field">
+            <label for="topic">What is this about?</label>
+            <select id="topic" name="topic" required>
+              <option value="" disabled selected>Choose a topic</option>
+              <option value="pin-shuffler">Pin Shuffler feedback</option>
+              <option value="general">General question</option>
+              <option value="collaboration">Work together / collaboration</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
 
           <div class="field">
             <label for="name">Name</label>
@@ -81,5 +92,6 @@
     </div>
   </footer>
 
+  <script src="/assets/contact-topic.js"></script>
 </body>
 </html>

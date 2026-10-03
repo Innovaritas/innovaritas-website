@@ -109,10 +109,10 @@ body::before {
     radial-gradient(2.2px 2.2px at 40px 60px, rgba(255, 255, 255, 1), transparent),
     radial-gradient(1.6px 1.6px at 120px 140px, rgba(255, 255, 255, 0.85), transparent),
     radial-gradient(2.8px 2.8px at 200px 30px, rgba(255, 255, 255, 0.95), transparent),
-    radial-gradient(1.6px 1.6px at 260px 190px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(2.2px 2.2px at 260px 190px, rgba(139, 92, 246, 0.8), transparent),
     radial-gradient(2.2px 2.2px at 320px 90px, rgba(255, 255, 255, 1), transparent),
     radial-gradient(1.6px 1.6px at 20px 220px, rgba(255, 255, 255, 0.75), transparent),
-    radial-gradient(1.4px 1.4px at 60px 170px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.8px 1.8px at 60px 170px, rgba(34, 211, 238, 0.7), transparent),
     radial-gradient(1.4px 1.4px at 300px 220px, rgba(255, 255, 255, 0.6), transparent),
     radial-gradient(2.4px 2.4px at 340px 60px, rgba(251, 191, 36, 0.85), transparent),
     radial-gradient(2.4px 2.4px at 90px 210px, rgba(74, 222, 128, 0.8), transparent),
@@ -776,6 +776,7 @@ footer.site-footer a:hover {
 }
 
 .contact-form input,
+.contact-form select,
 .contact-form textarea {
   width: 100%;
   box-sizing: border-box;
@@ -788,6 +789,24 @@ footer.site-footer a:hover {
   border: 1px solid var(--glass-border);
   border-radius: 10px;
   transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+/* Native dropdown with a custom arrow. color-scheme: dark keeps the open
+   list readable in dark mode; the option colors cover browsers that ignore it. */
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  color-scheme: dark;
+  padding-right: 42px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none' stroke='%23f3f4fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.contact-form select option {
+  background: #0d1120;
+  color: var(--text);
 }
 
 .contact-form textarea {
@@ -805,6 +824,7 @@ footer.site-footer a:hover {
 /* Plain :focus, not :focus-visible — text fields warrant a visible focus
    indicator for mouse users too, not only keyboard navigation. */
 .contact-form input:focus,
+.contact-form select:focus,
 .contact-form textarea:focus {
   outline: 2px solid var(--cyan);
   outline-offset: 2px;
