@@ -29,9 +29,11 @@ privacy/etsy-shop.html           Etsy shop privacy policy pointer (links to the 
 assets/style.css                 Shared stylesheet (includes the @font-face rules for the self-hosted fonts)
 assets/fonts/                    Self-hosted Inter and Raleway (.woff2) plus their license files
 assets/contact-topic.js          Pre-selects the contact form's Topic dropdown from ?topic= in the URL
-assets/logo.png                  Innovaritas wordmark (transparent PNG, from Canva)
-assets/favicon.png               Favicon / apple-touch-icon source (512x512)
+assets/logo.png                  Innovaritas wordmark (transparent PNG, 832 x 216). The sparkle above the i was rebuilt on an 11 pixel grid
+assets/favicon.png               Favicon source (512x512), same rebuilt sparkle
 assets/favicon-32.png            Favicon (32x32)
+assets/apple-touch-icon.png      Home screen icon (180x180)
+favicon.ico                      Classic favicon with 16, 32 and 48 pixel layers (lives in the project root, not assets/)
 assets/hero-stack.js             Powers the homepage's interactive project card switcher
 assets/pin-shuffler-pin.jpg      Photo used in the homepage hero's card stack
 assets/pin-shuffler-icon.png     Pin Shuffler's icon, used on the Chrome Web Store CTA pill

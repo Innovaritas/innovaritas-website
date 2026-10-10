@@ -236,10 +236,13 @@ header.site-header .wrap {
 .logo {
   display: flex;
   align-items: center;
+  /* Keeps the header the same height now that logo.png is taller (the
+     extra height is the sparkle, which may overhang slightly). */
+  height: 26px;
 }
 
 .logo img {
-  height: 26px;
+  height: 27.4px;
   width: auto;
   display: block;
 }
