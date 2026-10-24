@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Innovaritas." />
+  <title>Contact | Innovaritas</title>
+  <link rel="icon" href="/favicon.ico?v=3" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png?v=3" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png?v=3" sizes="512x512" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=3" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="/"><img src="/assets/logo.png?v=3" alt="Innovaritas" /></a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" class="active" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap">
+      <h1>Contact</h1>
+      <p class="lede">Feedback, ideas, or want to work together? Send us a note and we'll get back to you.</p>
+
+      <div class="card">
+        <!-- Handled by Netlify Forms. The `data-netlify` and `netlify-honeypot`
+             attributes are stripped at build time, when Netlify also injects a
+             hidden `form-name` field. Submissions land in the Netlify dashboard,
+             so no address or endpoint is exposed in this markup. -->
+        <form
+          name="contact"
+          method="POST"
+          action="/thanks.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contact-form"
+        >
+          <!-- Honeypot: hidden from sighted users and assistive tech alike.
+               Only bots fill it in, and those submissions are discarded. -->
+          <p class="hp" aria-hidden="true">
+            <label>Leave this field empty
+              <input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
+            </label>
+          </p>
+
+          <div class="field">
+            <label for="topic">Topic</label>
+            <select id="topic" name="subject" required>
+              <option value="" disabled selected>Choose a topic</option>
+              <option value="Pin Shuffler feedback" data-topic="pin-shuffler">Pin Shuffler feedback</option>
+              <option value="GenuineArticle feedback" data-topic="genuinearticle">GenuineArticle feedback</option>
+              <option value="Work together / collaboration" data-topic="collaboration">Work together / collaboration</option>
+              <option value="Something else" data-topic="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <p class="form-note">We use your details only to reply. <a href="/privacy/innovaritas.html">Read our privacy policy</a>.</p>
+
+          <button type="submit" class="btn">Send message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Innovaritas LLC · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/contact-topic.js"></script>
+</body>
+</html>
