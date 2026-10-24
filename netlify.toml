@@ -1,0 +1,6 @@
+# Netlify build settings.
+# This site publishes the whole repo folder, so repo-only files must be deleted
+# before publishing or they become public web pages (for example /README.md).
+# Add any new repo-only file (notes, CLAUDE.md, etc.) to this list.
+[build]
+  command = "rm -f README.md CLAUDE.md"
