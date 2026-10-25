@@ -37,7 +37,7 @@ assets/pin-shuffler-screenshot.jpg  Screenshot of Pin Shuffler in action, used o
 
 Spam is filtered by Netlify's built-in Akismet pass, plus a honeypot field (`netlify-honeypot="bot-field"`) that bots fill in and humans never see. No CAPTCHA.
 
-A one-line note above the Send button links to the website's privacy policy (`privacy/innovaritas.html`). The Pin Shuffler privacy policy deliberately keeps a real `mailto:` link instead of pointing at the form, because the Chrome Web Store listing requires a contact address in the policy. That address is HTML-entity encoded, which stops naive scrapers but not ones that decode entities first. It's a speed bump, not a guarantee.
+A one-line note above the Send button links to the website's privacy policy (`privacy/innovaritas.html`). The Pin Shuffler privacy policy deliberately keeps a real `mailto:` link instead of pointing at the form, because the Chrome Web Store listing requires a contact address in the policy. That page keeps the address HTML-entity encoded so a store reviewer or checker that does not run JavaScript still sees a real contact address. The GenuineArticle pages build the address with `assets/contact-email.js` instead, so it is not in their page source. Both are speed bumps for scrapers, not guarantees.
 
 ## Privacy and Terms
 
