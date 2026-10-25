@@ -34,6 +34,7 @@ tmp/
 # --- Local scratch ---
 # Working folder for files staged for deletion; not part of the site.
 _to_delete/
+CLAUDE.md
 
 # --- Dependencies and build output ---
 # Not used today, but will be if this site ever gains a build step.
